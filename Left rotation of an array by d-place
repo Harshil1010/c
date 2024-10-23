@@ -1,0 +1,69 @@
+//Brute solution.................................................................................................................................................................................................
+
+int rot_by_d(int arr[],int d, int n){
+    int temp[d];
+    
+    for(int i=0; i<d; i++){
+        temp[i]=arr[i];
+    }
+    
+   for(int i=0; i<n-d; i++){
+       arr[i]=arr[i+d];
+   } 
+   
+   int j=0;
+   for(int i=n-d; i<n; i++){
+       arr[i]=temp[j];
+       j++;
+   }
+   
+   for(int i=0; i<n; i++){
+       cout<<arr[i]<<" ";
+   }
+   return 1;
+}
+
+
+//Better solution......................................................................................................................................................................................................
+
+int rot_by_d(int arr[],int d, int n){
+    int temp[d];
+    
+    for(int i=0; i<d; i++){
+        temp[i]=arr[i];
+    }
+    
+   for(int i=0; i<n-d; i++){
+       arr[i]=arr[i+d];
+   } 
+   
+   
+   for(int i=0; i<d; i++){
+       arr[n-d+i]=temp[i];
+      
+   }
+   
+   for(int i=0; i<n; i++){
+       cout<<arr[i]<<" ";
+   }
+   return 1;
+}
+
+//S.C -> O(d) , T.c -> O(n+d)
+
+//optimal solution.................................................................................................................................................................................................
+
+//This is optiumal because it's space complixity is O(1) even it's T.C is more than above that is O(2n).
+#include<bits/stdc++.h>
+using namespace std;
+
+void rot_by_d(int arr[], int d, int n){
+    reverse(arr,arr+d);
+    reverse(arr+d,arr+n);
+    reverse(arr,arr+n);
+    
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
