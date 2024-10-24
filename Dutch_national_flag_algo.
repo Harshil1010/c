@@ -1,0 +1,24 @@
+//Dutch National Flag algo. is generally used to short an array having three deifferent values (generally 0,1,2)
+
+void dutch_nat_flag (int arr[]){
+    int low=0;
+    int mid=0;
+    int high=arr.size()-1;
+
+    while(mid<=high){
+        if(arr[mid]==0){
+            swap(arr[low],arr[mid];
+            low++;
+            high++;
+        }
+
+      else if (arr[mid] == 1){
+            mid++;
+        }
+
+      else{
+        swap(arr[mid],arr[high]);
+        high--;
+          }
+      }
+  }
