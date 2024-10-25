@@ -41,8 +41,39 @@ int getSingleElement(vector<int> &arr){
 
 \\BETTER SOLUTION................................................................................................................................................................................................................................................
 
+    int singleNumber(vector<int>& nums) {
+       int n=nums[0];
+       int element=0;
+
+       for(int i=0; i<nums.size(); i++){
+        n=max(n,nums[i]);
+       }
+
+       vector<int> hash(n+1,0);
+        for(int i=0; i<nums.size(); i++){
+            hash[nums[i]]+=1;
+        }
+
+        for(int i=0; i<hash.size(); i++){
+            if(hash[i]==1){
+                element=i;
+                break;
+            }
+        }
+       return element;
+    }
 
 
 
 
 \\ OPTIMAL SOLUTION............................................................................................................................................................................................................................................
+
+    int singleNumber(vector<int>& nums) {
+        int xorr=0;
+
+        for(int i=0; i<nums.size(); i++){
+            xorr=xorr ^ nums[i];
+        }
+
+        return xorr;
+    }
