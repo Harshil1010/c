@@ -1,0 +1,65 @@
+//BRUTE SOLUTION...................................................................................................................................................................................................................................................
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int>arr(2,0);
+        for(int i=0; i<nums.size(); i++){
+            int sum=0;
+            for(int j=i+1; j<nums.size(); j++){
+                sum=nums[i]+nums[j];
+                if(sum==target){
+                    arr[0]=i;
+                    arr[1]=j;
+                    break;
+                }
+            }
+            if(sum==target){
+                break;
+            }   
+        }
+        return arr; 
+    }
+
+
+// BETTER SOLUTION.......................................................................................................................................................................................................................................................
+    vector<int> twoSum(vector<int>& nums, int target) {
+        map<int,int> map;
+        int n=nums.size();
+
+        for(int i=0; i<n; i++){
+            int num=nums[i];
+            int more=target-num;
+            if(map.find(more)!=map.end()){
+                return{map[more],i};
+            }
+            map[num]=i;
+        }
+        return{-1,-1};
+    }
+
+    //OPTIMAL SOLUTION............................................................................................................................................................................................................................................
+    //This is optimal solution but it will change the element after sorting.
+
+        vector<int> twoSum(vector<int>& nums, int target) {
+      vector<int> twoSum(vector<int>& nums, int target) {
+        sort(nums.begin(),nums.end());
+        int left=0, right=nums.size()-1;
+        vector<int>arr(2,0); 
+        
+
+        while(left<right){
+            int sum=nums[left]+nums[right];
+            if(sum==target){
+                arr[0]=left;
+                arr[1]=right;
+                return arr;
+            }
+
+            else if(sum<target){
+                left++;
+            }
+
+            else{
+                right--;
+            }
+        }
+        return {};
+    }
