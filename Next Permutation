@@ -1,0 +1,15 @@
+//BRUTE APPROACH...............................................................................................................................................................................................................................................
+-> FIRSTLY WE WILL BE CREATING ALLPOSSIBLE PERMUTATION IN SORTING FORM BYB USING RECURSION.
+-> THEN WE WILL PERFORM LINEAR SEARCH. TO FIND WHERE IS THE GIVEN ARRAY IS PRESENT.
+-> AND FINALLY WE WILL RETURN NEXT ARRAY.
+-> IN CASE IF THAT ARRAY IS AT LAST INDEX THEN WE WILL RETURN THEN ARRAY WHICH IS AT FIRST INDEX.
+
+//BETTER SOLUTION..............................................................................................................................................................................................................................................
+    void nextPermutation(vector<int>& nums) {
+        next_permutation(nums.begin(),nums.end());
+    }
+
+//OPTIMAL SOLUTIOIN...........................................................................................................................................................................................................................................
+    void nextPermutation(vector<int>& nums) {
+        
+    }
